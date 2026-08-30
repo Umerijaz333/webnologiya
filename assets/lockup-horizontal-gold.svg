@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 140">
+  <g transform="translate(10,10) scale(0.55)">
+    <path d="M30,32 L30,150 L120,58 L210,150 L210,32" fill="none" stroke="#C9A04B" stroke-width="17" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M120,90 L120,150" fill="none" stroke="#C9A04B" stroke-width="17" stroke-linecap="square"/>
+  </g>
+  <text x="140" y="82" font-family="Poppins" font-weight="700" font-size="38" letter-spacing="4" fill="#C9A04B">WEBNOLOGIYA</text>
+</svg>

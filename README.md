@@ -11,6 +11,7 @@ styles.css        → all styling, design tokens, responsive layout, animation
 script.js         → scroll reveals, the hero/Work browser-frame demos, Process
                      frame, and the contact form submit handler
 api/contact.js    → Vercel serverless function that handles the contact form
+assets/           → logo marks (SVG), favicons — see below
 ```
 
 ## Deploying
@@ -53,9 +54,21 @@ vercel dev
 
 ## Still needed before this is production-ready
 
-- **Logo**: the nav currently uses a CSS placeholder mark ("WN" in a gold
-  badge, see `.logo-mark` in `styles.css`). Swap it for the real logo file
-  when available.
 - **WhatsApp number**: `index.html` has a placeholder `wa.me` link
   (`https://wa.me/10000000000`, marked with a `TODO` comment next to it in
   the Contact section). Replace `10000000000` with the real number.
+
+## Logo & favicons
+
+The nav mark is inlined directly into `index.html` (the small gold glyph
+next to the wordmark) so it renders with zero extra requests. The rest of
+the brand assets live in `assets/`:
+
+- `mark-gold.svg` / `mark-cream.svg` / `mark-maroon.svg` — the glyph alone,
+  one per background it's meant to sit on.
+- `lockup-horizontal-gold.svg` — glyph + wordmark, for anywhere a full
+  lockup is needed instead of just the mark.
+- `favicon.svg`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`
+  — wired up in `index.html`'s `<head>`.
+- `favicon-512.png` — not currently referenced; add it to a web app
+  manifest if one gets added later.
