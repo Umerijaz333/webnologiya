@@ -8,12 +8,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, business, email, message } = req.body || {};
+  const { name, business, need, email, message } = req.body || {};
 
   // Basic validation — reject empty required fields
   if (!name || !business || !email) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
+
+  // The form field accepts an email OR a WhatsApp number — only use it as
+  // reply_to when it actually looks like an email address, since Resend
+  // rejects a reply_to that isn't a valid address.
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
   const LEAD_EMAIL_TO = process.env.LEAD_EMAIL_TO;
@@ -33,12 +38,13 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'Webnologiya Leads <leads@webnologiya.com>', // must be a domain verified in Resend
         to: [LEAD_EMAIL_TO],
-        reply_to: email,
+        ...(isEmail ? { reply_to: email } : {}),
         subject: `New lead: ${business}`,
         text:
           `Name: ${name}\n` +
           `Business: ${business}\n` +
-          `Email: ${email}\n\n` +
+          (need ? `What they need: ${need}\n` : '') +
+          `Email/WhatsApp: ${email}\n\n` +
           `Message:\n${message || '(none provided)'}`
       })
     });

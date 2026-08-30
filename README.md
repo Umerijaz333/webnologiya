@@ -6,7 +6,10 @@ businesses that don't have one yet.
 ## Structure
 
 ```
-index.html       → the full site (single static page)
+index.html       → markup for the full site (single static page)
+styles.css        → all styling, design tokens, responsive layout, animation
+script.js         → scroll reveals, the hero/Work browser-frame demos, Process
+                     frame, and the contact form submit handler
 api/contact.js    → Vercel serverless function that handles the contact form
 ```
 
@@ -47,3 +50,12 @@ no build step. To test the API route locally, use the Vercel CLI:
 npm i -g vercel
 vercel dev
 ```
+
+## Still needed before this is production-ready
+
+- **Logo**: the nav currently uses a CSS placeholder mark ("WN" in a gold
+  badge, see `.logo-mark` in `styles.css`). Swap it for the real logo file
+  when available.
+- **WhatsApp number**: `index.html` has a placeholder `wa.me` link
+  (`https://wa.me/10000000000`, marked with a `TODO` comment next to it in
+  the Contact section). Replace `10000000000` with the real number.
