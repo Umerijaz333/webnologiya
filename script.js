@@ -349,6 +349,93 @@
   }
 
   /* =========================================================
+     Real Work — actual live client sites, not demos.
+     Same data-driven pattern as `industries`: adding a third
+     or fourth client later is just appending to this array.
+     ========================================================= */
+  var realWork = [
+    {
+      name: "Al-Qalam Language Center",
+      category: "Education — Language Institute",
+      description:
+        "A course-and-consultation site built to book free assessments for a 3,000+ student English fluency academy in Lahore.",
+      url: "https://alqalamlanguagecenter.com",
+      thumbnail: "https://alqalamlanguagecenter.com/images/og/og-default.png",
+    },
+    {
+      name: "Watt & Watts",
+      category: "B2B — Architectural Lighting",
+      description:
+        "A specification-grade product catalogue built to route architects and designers straight to WhatsApp for stock and lead-time confirmation.",
+      url: "https://www.wattandwatts.com",
+      thumbnail: "https://wattandwatts.com/images/og/default-og.jpg",
+    },
+  ];
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function renderRealWork() {
+    var grid = document.getElementById("real-work-grid");
+    if (!grid) return;
+
+    grid.innerHTML = realWork
+      .map(function (item) {
+        var hostname;
+        try {
+          hostname = new URL(item.url).hostname;
+        } catch (e) {
+          hostname = item.url;
+        }
+        return (
+          '<div class="real-work-card">' +
+          '<div class="browser-frame">' +
+          '<div class="browser-frame__chrome"><span class="browser-frame__url">' +
+          escapeHtml(hostname) +
+          "</span></div>" +
+          '<div class="browser-frame__body real-work-card__thumb">' +
+          '<img src="' +
+          escapeHtml(item.thumbnail) +
+          '" alt="Screenshot of the ' +
+          escapeHtml(item.name) +
+          ' website homepage" loading="lazy">' +
+          '<div class="real-work-card__thumb-fallback" aria-hidden="true">' +
+          escapeHtml(item.name) +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<div class="real-work-card__meta">' +
+          '<p class="real-work-card__name">' +
+          escapeHtml(item.name) +
+          "</p>" +
+          '<p class="real-work-card__category">' +
+          escapeHtml(item.category) +
+          "</p>" +
+          '<p class="real-work-card__desc">' +
+          escapeHtml(item.description) +
+          "</p>" +
+          '<a class="real-work-card__link" href="' +
+          escapeHtml(item.url) +
+          '" target="_blank" rel="noopener">Visit live site ↗</a>' +
+          "</div>" +
+          "</div>"
+        );
+      })
+      .join("");
+
+    grid.querySelectorAll("img").forEach(function (img) {
+      img.addEventListener("error", function () {
+        var card = img.closest(".real-work-card");
+        if (card) card.classList.add("thumb-failed");
+      });
+    });
+  }
+  renderRealWork();
+
+  /* =========================================================
      Process — one evolving frame, scroll- and hover-driven
      ========================================================= */
   var processSteps = document.querySelectorAll(".process-step");
