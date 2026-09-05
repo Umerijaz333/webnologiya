@@ -22,7 +22,9 @@
       body:
         '<header class="d-nav reveal d1"><span class="d-logo">Amara Kitchen</span>' +
         '<nav><a href="#">Menu</a><a href="#">About</a><a href="#">Reserve</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>Seasonal plates,<br>open nightly.</h1>' +
+        '<section class="d-hero has-photo reveal d2">' +
+        '<img class="d-hero__bg" src="assets/images/restaurant.jpg" alt="Plated restaurant dish with herb garnish on a candlelit table" loading="lazy">' +
+        '<h1>Seasonal plates,<br>open nightly.</h1>' +
         '<p>Neighborhood dining room &amp; wine bar.</p></section>' +
         '<ul class="d-menu reveal d3">' +
         '<li><span>Roasted beet salad</span><em>$12</em></li>' +
@@ -45,7 +47,9 @@
       body:
         '<header class="d-nav reveal d1"><span class="d-logo">Harbor &amp; Stone</span>' +
         '<nav><a href="#">Listings</a><a href="#">Sell</a><a href="#">Contact</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>12 Bellview Terrace</h1><p>4 bed &middot; 3 bath &middot; $845,000</p></section>' +
+        '<section class="d-hero has-photo reveal d2">' +
+        '<img class="d-hero__bg" src="assets/images/real-estate.jpg" alt="Modern single-story home exterior lit up at dusk" loading="lazy">' +
+        '<h1>12 Bellview Terrace</h1><p>4 bed &middot; 3 bath &middot; $845,000</p></section>' +
         '<div class="d-gallery reveal d3"><div class="d-gallery__img" id="gimg"></div>' +
         '<div class="d-dots" role="group" aria-label="Photos">' +
         '<button type="button" class="active" data-i="0" aria-label="Photo 1"></button>' +
@@ -73,7 +77,9 @@
       body:
         '<header class="d-nav reveal d1"><span class="d-logo">Norr Studio</span>' +
         '<nav><a href="#">Projects</a><a href="#">Studio</a><a href="#">Contact</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>Considered spaces,<br>built to last.</h1><p>Residential &amp; interior architecture.</p></section>' +
+        '<section class="d-hero has-photo reveal d2">' +
+        '<img class="d-hero__bg" src="assets/images/interiors.jpg" alt="Minimalist living room interior with a sectional sofa and fireplace" loading="lazy">' +
+        '<h1>Considered spaces,<br>built to last.</h1><p>Residential &amp; interior architecture.</p></section>' +
         '<div class="d-thumbs reveal d3">' +
         '<div class="thumb" style="background:linear-gradient(135deg,#8C8C82,#C8C6BC);"><span class="thumb__cap">Birch House</span></div>' +
         '<div class="thumb" style="background:linear-gradient(135deg,#6E6A61,#ABA79B);"><span class="thumb__cap">Fold Pavilion</span></div>' +
@@ -91,13 +97,15 @@
       label: "Local Service",
       accent: "#2F5D45",
       soft: "#E3ECE4",
-      name: "BrightFix",
+      name: "Fade House",
       body:
-        '<header class="d-nav reveal d1"><span class="d-logo">BrightFix</span>' +
+        '<header class="d-nav reveal d1"><span class="d-logo">Fade House</span>' +
         '<nav><a href="#">Services</a><a href="#">Reviews</a><a href="#">Contact</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>Plumbing &amp; electric,<br>same-day.</h1><p>Licensed. Insured. Local.</p></section>' +
+        '<section class="d-hero has-photo reveal d2">' +
+        '<img class="d-hero__bg" src="assets/images/local-service.jpg" alt="Barbershop chair and grooming station" loading="lazy">' +
+        '<h1>Sharp cuts,<br>no wait.</h1><p>Walk-ins welcome. Open six days.</p></section>' +
         '<ul class="d-services reveal d3">' +
-        "<li>Emergency plumbing</li><li>Electrical repair</li><li>Water heater install</li>" +
+        "<li>Classic haircut</li><li>Beard trim &amp; shape</li><li>Hot towel shave</li>" +
         "</ul>" +
         '<div class="reveal d4"><button class="d-cta" type="button">Book now</button></div>',
       css:
@@ -114,16 +122,16 @@
       body:
         '<header class="d-nav reveal d1"><span class="d-logo">Wren &amp; Co.</span>' +
         '<nav><a href="#">Shop</a><a href="#">About</a><a href="#">Cart (0)</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>Small-batch<br>ceramics.</h1><p>Hand-thrown, made to order.</p></section>' +
+        '<section class="d-hero reveal d2"><h1>Everyday leather,<br>made to last.</h1><p>Small-batch leather goods, hand-stitched to order.</p></section>' +
         '<div class="d-product reveal d3">' +
-        '<div class="d-product__img"></div>' +
-        '<div class="d-product__info"><strong>Stoneware mug</strong><span>$34</span></div>' +
+        '<img class="d-product__img" src="assets/images/ecommerce.jpg" alt="Leather bifold wallet and sunglasses styled on linen fabric" loading="lazy">' +
+        '<div class="d-product__info"><strong>Leather bifold wallet</strong><span>$58</span></div>' +
         "</div>" +
         '<div class="reveal d4"><button class="d-cta" type="button">Add to cart</button></div>',
       css:
-        ".d-product{display:flex;align-items:center;gap:12px;margin:14px 24px 0;}" +
-        ".d-product__img{width:64px;height:64px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,#6B3A52,#B98CA4);}" +
-        ".d-product__info{display:flex;flex-direction:column;gap:2px;font-size:0.82rem;}" +
+        ".d-product{margin:14px 24px 0;}" +
+        ".d-product__img{width:100%;aspect-ratio:4/3;border-radius:8px;object-fit:cover;display:block;}" +
+        ".d-product__info{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:0.82rem;}" +
         ".d-product__info span{color:var(--accent);font-weight:600;}",
     },
     {
@@ -135,7 +143,9 @@
       body:
         '<header class="d-nav reveal d1"><span class="d-logo">Calder Legal</span>' +
         '<nav><a href="#">Practice</a><a href="#">Team</a><a href="#">Contact</a></nav></header>' +
-        '<section class="d-hero reveal d2"><h1>Clear counsel,<br>plainly explained.</h1>' +
+        '<section class="d-hero has-photo reveal d2">' +
+        '<img class="d-hero__bg" src="assets/images/professional-service.jpg" alt="Close-up of a hand signing a document beside a set of scales" loading="lazy">' +
+        '<h1>Clear counsel,<br>plainly explained.</h1>' +
         "<p>Small business &amp; contract law.</p></section>" +
         '<p class="d-about reveal d3">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
         '<div class="reveal d4"><button class="d-cta" type="button">Book a consultation</button></div>',
@@ -174,9 +184,13 @@
       ".d-nav nav{display:flex;gap:16px;}" +
       ".d-nav nav a{font-size:0.74rem;color:#5a5148;padding:2px 0;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;}" +
       ".d-nav nav a:hover{color:var(--accent);border-color:var(--accent);}" +
-      ".d-hero{padding:22px 24px 4px;background:var(--soft);}" +
+      ".d-hero{position:relative;overflow:hidden;padding:22px 24px 4px;background:var(--soft);}" +
       ".d-hero h1{margin:0;font-size:1.28rem;line-height:1.22;font-family:Georgia,'Times New Roman',serif;}" +
       ".d-hero p{margin:8px 0 18px;font-size:0.8rem;color:#5a5148;}" +
+      ".d-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}" +
+      ".d-hero.has-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,5,0.2),rgba(20,10,5,0.6));z-index:1;}" +
+      ".d-hero.has-photo>*:not(.d-hero__bg){position:relative;z-index:2;}" +
+      ".d-hero.has-photo h1,.d-hero.has-photo p{color:#fff;}" +
       ".d-cta{display:inline-block;margin:16px 24px 20px;background:var(--accent);color:#fff;padding:9px 18px;border-radius:7px;font-size:0.76rem;font-weight:600;transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;}" +
       ".d-cta:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 10px 18px -8px rgba(0,0,0,0.4);}" +
       ".reveal{opacity:0;transform:translateY(8px);animation:fu var(--intro) cubic-bezier(.4,0,.2,1) both;}" +

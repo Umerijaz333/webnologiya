@@ -72,3 +72,20 @@ the brand assets live in `assets/`:
   — wired up in `index.html`'s `<head>`.
 - `favicon-512.png` — not currently referenced; add it to a web app
   manifest if one gets added later.
+
+## Photography
+
+`assets/images/` holds the site's raster images:
+
+- `restaurant.jpg`, `real-estate.jpg`, `interiors.jpg`, `local-service.jpg`,
+  `professional-service.jpg` — hero-background photos inside their
+  respective Work-section demo iframes (`script.js`, `industries` array).
+- `ecommerce.jpg` — the featured product image in the Online Store demo
+  (not a background — it's the product photo itself).
+- `paper-texture.jpg` — a very-low-opacity (6%) grain overlay on the
+  Problem and Process sections only (`styles.css`, `#problem`/`#process`).
+  Maroon sections don't get it.
+- `og-share.jpg` — the Open Graph / Twitter Card share image, wired up in
+  `index.html`'s `<head>` (`og:image`, `twitter:image`). It's a relative
+  path for now; once the site has a real domain, consider switching
+  `og:image` to an absolute URL for maximum crawler compatibility.

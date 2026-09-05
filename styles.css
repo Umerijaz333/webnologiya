@@ -109,6 +109,29 @@ body{
   --text-muted: var(--text-on-ivory-muted);
 }
 
+/* Subtle paper grain on the ivory sections only — never on maroon */
+#problem,
+#process{
+  position: relative;
+  isolation: isolate;
+}
+#problem::before,
+#process::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/images/paper-texture.jpg');
+  background-repeat: repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+#problem > *,
+#process > *{
+  position: relative;
+  z-index: 1;
+}
+
 .eyebrow{
   display: inline-block;
   font-size: 0.78rem;
