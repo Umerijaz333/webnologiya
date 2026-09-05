@@ -26,12 +26,12 @@
         '<img class="d-hero__bg" src="assets/images/restaurant.jpg" alt="Plated restaurant dish with herb garnish on a candlelit table" loading="lazy">' +
         '<h1>Seasonal plates,<br>open nightly.</h1>' +
         '<p>Neighborhood dining room &amp; wine bar.</p></section>' +
-        '<ul class="d-menu reveal d3">' +
+        '<ul class="d-menu d-fill reveal d3">' +
         '<li><span>Roasted beet salad</span><em>$12</em></li>' +
         '<li><span>Herb-crusted lamb</span><em>$28</em></li>' +
         '<li><span>Wild mushroom risotto</span><em>$21</em></li>' +
         "</ul>" +
-        '<div class="reveal d4"><button class="d-cta" type="button">Reserve a table</button></div>',
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">Reserve a table</button></div>',
       css:
         ".d-menu{margin:14px 24px 0;padding:0;list-style:none;}" +
         ".d-menu li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.12);font-size:0.82rem;}" +
@@ -50,12 +50,12 @@
         '<section class="d-hero has-photo reveal d2">' +
         '<img class="d-hero__bg" src="assets/images/real-estate.jpg" alt="Modern single-story home exterior lit up at dusk" loading="lazy">' +
         '<h1>12 Bellview Terrace</h1><p>4 bed &middot; 3 bath &middot; $845,000</p></section>' +
-        '<div class="d-gallery reveal d3"><div class="d-gallery__img" id="gimg"></div>' +
+        '<div class="d-gallery d-fill reveal d3"><div class="d-gallery__img" id="gimg"></div>' +
         '<div class="d-dots" role="group" aria-label="Photos">' +
         '<button type="button" class="active" data-i="0" aria-label="Photo 1"></button>' +
         '<button type="button" data-i="1" aria-label="Photo 2"></button>' +
         '<button type="button" data-i="2" aria-label="Photo 3"></button></div></div>' +
-        '<div class="reveal d4"><button class="d-cta" type="button">Request a viewing</button></div>' +
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">Request a viewing</button></div>' +
         "<script>" +
         "var imgs=['linear-gradient(135deg,#2C3E55,#5A7291)','linear-gradient(135deg,#7A8B6F,#B7C4A6)','linear-gradient(135deg,#8C7357,#D8C6A8)'];" +
         "var gimg=document.getElementById('gimg');" +
@@ -63,8 +63,9 @@
         "</" +
         "script>",
       css:
-        ".d-gallery__img{aspect-ratio:16/8;border-radius:8px;background:linear-gradient(135deg,#2C3E55,#5A7291);transition:background .25s ease;}" +
-        ".d-dots{display:flex;gap:8px;justify-content:center;margin-top:10px;}" +
+        ".d-gallery{display:flex;flex-direction:column;}" +
+        ".d-gallery__img{flex:1 1 auto;min-height:0;border-radius:8px;background:linear-gradient(135deg,#2C3E55,#5A7291);transition:background .25s ease;}" +
+        ".d-dots{flex:none;display:flex;gap:8px;justify-content:center;margin-top:10px;}" +
         ".d-dots button{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,0.18);padding:0;}" +
         ".d-dots button.active{background:var(--accent);}",
     },
@@ -80,15 +81,15 @@
         '<section class="d-hero has-photo reveal d2">' +
         '<img class="d-hero__bg" src="assets/images/interiors.jpg" alt="Minimalist living room interior with a sectional sofa and fireplace" loading="lazy">' +
         '<h1>Considered spaces,<br>built to last.</h1><p>Residential &amp; interior architecture.</p></section>' +
-        '<div class="d-thumbs reveal d3">' +
+        '<div class="d-thumbs d-fill reveal d3">' +
         '<div class="thumb" style="background:linear-gradient(135deg,#8C8C82,#C8C6BC);"><span class="thumb__cap">Birch House</span></div>' +
         '<div class="thumb" style="background:linear-gradient(135deg,#6E6A61,#ABA79B);"><span class="thumb__cap">Fold Pavilion</span></div>' +
         '<div class="thumb" style="background:linear-gradient(135deg,#9A8E77,#D6CBB4);"><span class="thumb__cap">Quarry Loft</span></div>' +
         "</div>" +
-        '<div class="reveal d4"><button class="d-cta" type="button">View portfolio</button></div>',
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">View portfolio</button></div>',
       css:
-        ".d-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 24px 0;}" +
-        ".thumb{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;}" +
+        ".d-thumbs{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:100%;gap:8px;margin:14px 24px 0;}" +
+        ".thumb{position:relative;height:100%;border-radius:6px;overflow:hidden;}" +
         ".thumb__cap{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:0.66rem;color:#fff;background:rgba(0,0,0,0.45);opacity:0;transform:translateY(6px);transition:opacity .18s ease, transform .18s ease;}" +
         ".thumb:hover .thumb__cap{opacity:1;transform:none;}",
     },
@@ -104,10 +105,10 @@
         '<section class="d-hero has-photo reveal d2">' +
         '<img class="d-hero__bg" src="assets/images/local-service.jpg" alt="Barbershop chair and grooming station" loading="lazy">' +
         '<h1>Sharp cuts,<br>no wait.</h1><p>Walk-ins welcome. Open six days.</p></section>' +
-        '<ul class="d-services reveal d3">' +
+        '<ul class="d-services d-fill reveal d3">' +
         "<li>Classic haircut</li><li>Beard trim &amp; shape</li><li>Hot towel shave</li>" +
         "</ul>" +
-        '<div class="reveal d4"><button class="d-cta" type="button">Book now</button></div>',
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">Book now</button></div>',
       css:
         ".d-services{margin:14px 24px 0;padding:0;list-style:none;font-size:0.82rem;}" +
         ".d-services li{padding:6px 0 6px 20px;position:relative;}" +
@@ -123,15 +124,15 @@
         '<header class="d-nav reveal d1"><span class="d-logo">Wren &amp; Co.</span>' +
         '<nav><a href="#">Shop</a><a href="#">About</a><a href="#">Cart (0)</a></nav></header>' +
         '<section class="d-hero reveal d2"><h1>Everyday leather,<br>made to last.</h1><p>Small-batch leather goods, hand-stitched to order.</p></section>' +
-        '<div class="d-product reveal d3">' +
+        '<div class="d-product d-fill reveal d3">' +
         '<img class="d-product__img" src="assets/images/ecommerce.jpg" alt="Leather bifold wallet and sunglasses styled on linen fabric" loading="lazy">' +
         '<div class="d-product__info"><strong>Leather bifold wallet</strong><span>$58</span></div>' +
         "</div>" +
-        '<div class="reveal d4"><button class="d-cta" type="button">Add to cart</button></div>',
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">Add to cart</button></div>',
       css:
-        ".d-product{margin:14px 24px 0;}" +
-        ".d-product__img{width:100%;aspect-ratio:4/3;border-radius:8px;object-fit:cover;display:block;}" +
-        ".d-product__info{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:0.82rem;}" +
+        ".d-product{display:flex;flex-direction:column;margin:14px 24px 0;}" +
+        ".d-product__img{flex:1 1 auto;min-height:0;width:100%;border-radius:8px;object-fit:cover;display:block;}" +
+        ".d-product__info{flex:none;display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:0.82rem;}" +
         ".d-product__info span{color:var(--accent);font-weight:600;}",
     },
     {
@@ -147,8 +148,8 @@
         '<img class="d-hero__bg" src="assets/images/professional-service.jpg" alt="Close-up of a hand signing a document beside a set of scales" loading="lazy">' +
         '<h1>Clear counsel,<br>plainly explained.</h1>' +
         "<p>Small business &amp; contract law.</p></section>" +
-        '<p class="d-about reveal d3">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
-        '<div class="reveal d4"><button class="d-cta" type="button">Book a consultation</button></div>',
+        '<p class="d-about d-fill reveal d3">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
+        '<div class="d-actions reveal d4"><button class="d-cta" type="button">Book a consultation</button></div>',
       css: ".d-about{margin:14px 24px 0;font-size:0.8rem;color:#5a5a5a;max-width:38ch;}",
     },
   ];
@@ -176,23 +177,38 @@
       ";}" +
       "*{box-sizing:border-box;}" +
       "html,body{margin:0;height:100%;}" +
-      "body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#F4EFE6;color:#241812;position:relative;overflow:hidden;}" +
+      "body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#F4EFE6;color:#241812;position:relative;overflow:hidden;display:flex;flex-direction:column;}" +
       "a{color:inherit;text-decoration:none;}" +
       "button{font:inherit;cursor:pointer;border:0;}" +
-      ".d-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,0.08);}" +
+      ".d-nav{flex:none;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,0.08);}" +
       ".d-logo{font-weight:700;font-size:0.86rem;letter-spacing:.01em;}" +
       ".d-nav nav{display:flex;gap:16px;}" +
       ".d-nav nav a{font-size:0.74rem;color:#5a5148;padding:2px 0;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;}" +
       ".d-nav nav a:hover{color:var(--accent);border-color:var(--accent);}" +
-      ".d-hero{position:relative;overflow:hidden;padding:22px 24px 4px;background:var(--soft);}" +
+      ".d-hero{flex:none;position:relative;overflow:hidden;padding:22px 24px 4px;background:var(--soft);}" +
       ".d-hero h1{margin:0;font-size:1.28rem;line-height:1.22;font-family:Georgia,'Times New Roman',serif;}" +
       ".d-hero p{margin:8px 0 18px;font-size:0.8rem;color:#5a5148;}" +
       ".d-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}" +
       ".d-hero.has-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,5,0.2),rgba(20,10,5,0.6));z-index:1;}" +
       ".d-hero.has-photo>*:not(.d-hero__bg){position:relative;z-index:2;}" +
       ".d-hero.has-photo h1,.d-hero.has-photo p{color:#fff;}" +
+      // The middle "visual" block (menu/gallery/thumbs/services/product/about)
+      // fills whatever space is left after nav+hero+actions — it never
+      // dictates the frame's height, the frame dictates its height.
+      ".d-fill{flex:1 1 auto;min-height:0;overflow:hidden;}" +
+      ".d-actions{flex:none;}" +
       ".d-cta{display:inline-block;margin:16px 24px 20px;background:var(--accent);color:#fff;padding:9px 18px;border-radius:7px;font-size:0.76rem;font-weight:600;transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;}" +
       ".d-cta:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 10px 18px -8px rgba(0,0,0,0.4);}" +
+      // On a narrow frame (mobile) the fixed nav+hero+actions rows can
+      // otherwise add up to more than the frame's own height. Shrink them
+      // so the flexible middle block always keeps some real room.
+      "@media (max-width:420px){" +
+      ".d-nav{padding:10px 18px;}" +
+      ".d-hero{padding:14px 18px 4px;}" +
+      ".d-hero h1{font-size:1.05rem;}" +
+      ".d-hero p{margin:6px 0 10px;font-size:0.72rem;}" +
+      ".d-cta{margin:10px 18px 12px;padding:7px 14px;font-size:0.7rem;}" +
+      "}" +
       ".reveal{opacity:0;transform:translateY(8px);animation:fu var(--intro) cubic-bezier(.4,0,.2,1) both;}" +
       ".reveal.d1{animation-delay:calc(var(--intro) * 0.0);}" +
       ".reveal.d2{animation-delay:calc(var(--intro) * 0.16);}" +
