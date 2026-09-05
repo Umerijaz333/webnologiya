@@ -211,28 +211,33 @@
   }
 
   /* =========================================================
-     Scroll reveal — IntersectionObserver, once each
+     Scroll reveal — IntersectionObserver, once each.
+     Set up at the very end of this script (after every dynamic
+     render below has added its own .reveal elements), so nothing
+     inserted later is missed.
      ========================================================= */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && !prefersReduced) {
-    var revealIO = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealIO.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-    );
-    revealEls.forEach(function (el) {
-      revealIO.observe(el);
-    });
-  } else {
-    revealEls.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
+  function initRevealObserver() {
+    var revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window && !prefersReduced) {
+      var revealIO = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealIO.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+      );
+      revealEls.forEach(function (el) {
+        revealIO.observe(el);
+      });
+    } else {
+      revealEls.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+    }
   }
 
   /* =========================================================
@@ -270,9 +275,19 @@
   var sharedFrame = document.getElementById("shared-frame");
   var sharedIframe = sharedFrame ? sharedFrame.querySelector("iframe") : null;
 
-  function renderIndustry(id, introMs) {
+  function renderIndustry(id, introMs, crossfade) {
     var ind = industryMap[id] || industries[0];
-    if (sharedIframe) sharedIframe.srcdoc = buildSrcdoc(ind, introMs);
+    if (!sharedIframe) return;
+
+    if (crossfade && !prefersReduced) {
+      sharedIframe.classList.add("is-switching");
+      window.setTimeout(function () {
+        sharedIframe.srcdoc = buildSrcdoc(ind, introMs);
+        sharedIframe.classList.remove("is-switching");
+      }, 130);
+    } else {
+      sharedIframe.srcdoc = buildSrcdoc(ind, introMs);
+    }
   }
 
   // Hero starts on the restaurant demo — same data Work uses.
@@ -294,7 +309,7 @@
       });
       tab.setAttribute("aria-selected", "true");
       tab.tabIndex = 0;
-      renderIndustry(tab.getAttribute("data-industry"), prefersReduced ? 0 : 420);
+      renderIndustry(tab.getAttribute("data-industry"), prefersReduced ? 0 : 420, true);
     });
     tab.addEventListener("keydown", function (e) {
       var list = Array.prototype.slice.call(tabs);
@@ -397,7 +412,7 @@
     if (!grid) return;
 
     grid.innerHTML = realWork
-      .map(function (item) {
+      .map(function (item, i) {
         var hostname;
         try {
           hostname = new URL(item.url).hostname;
@@ -405,7 +420,10 @@
           hostname = item.url;
         }
         return (
-          '<div class="real-work-card">' +
+          '<div class="real-work-card reveal" style="--d:' +
+          i +
+          '">' +
+          '<div class="real-work-card__inner">' +
           '<div class="browser-frame">' +
           '<div class="browser-frame__chrome"><span class="browser-frame__url">' +
           escapeHtml(hostname) +
@@ -435,6 +453,7 @@
           escapeHtml(item.url) +
           '" target="_blank" rel="noopener">Visit live site ↗</a>' +
           "</div>" +
+          "</div>" +
           "</div>"
         );
       })
@@ -463,12 +482,28 @@
     f.srcdoc = buildSrcdoc(industryMap.restaurant, 0);
   });
 
+  var currentStage = null;
   function setStage(stage) {
+    stage = String(stage);
+    if (stage === currentStage) return;
+    var isFirstCall = currentStage === null;
+    currentStage = stage;
+
     processLayers.forEach(function (l) {
-      l.classList.toggle("is-active", l.getAttribute("data-stage") === String(stage));
+      l.classList.toggle("is-active", l.getAttribute("data-stage") === stage);
     });
     processSteps.forEach(function (s) {
-      s.classList.toggle("is-active", s.getAttribute("data-stage") === String(stage));
+      var active = s.getAttribute("data-stage") === stage;
+      s.classList.toggle("is-active", active);
+      // Pulse the number on real transitions only — not the initial default state.
+      if (active && !isFirstCall && !prefersReduced) {
+        var num = s.querySelector(".process-step__num");
+        if (num) {
+          num.classList.remove("is-pulsing");
+          void num.offsetWidth; // restart the animation if it's re-triggered
+          num.classList.add("is-pulsing");
+        }
+      }
     });
     if (processFrame) processFrame.classList.toggle("is-live", Number(stage) === 4);
   }
@@ -539,4 +574,8 @@
         });
     });
   }
+
+  // Runs last: every dynamic render above (industries, Real Work cards)
+  // has added its .reveal elements to the DOM by this point.
+  initRevealObserver();
 })();

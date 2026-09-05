@@ -92,13 +92,13 @@
   <section class="problem section section--ivory" id="problem">
     <div class="container problem__inner">
       <h2 class="eyebrow reveal">Findability</h2>
-      <div class="problem__mock reveal">
-        <div class="result-card result-card--good">
+      <div class="problem__mock">
+        <div class="result-card result-card--good reveal" style="--d:0">
           <p class="result-card__biz">Riverside Home Repair</p>
           <p class="result-card__url">riversidehomerepair.com</p>
           <img class="result-card__preview" src="assets/images/problem-good-example.jpg" alt="Example of a professional small business website homepage" loading="lazy">
         </div>
-        <div class="result-card result-card--bare">
+        <div class="result-card result-card--bare reveal" style="--d:1">
           <p class="result-card__biz">Delgado Repairs</p>
           <p class="result-card__url">No website found</p>
           <p class="result-card__phone">(555) 019-2214</p>
@@ -150,7 +150,7 @@
         <p>Not mockups — these are actual businesses running on sites we built.</p>
       </div>
 
-      <div class="real-work__grid reveal" id="real-work-grid"></div>
+      <div class="real-work__grid" id="real-work-grid"></div>
     </div>
   </section>
 
@@ -163,8 +163,8 @@
       </div>
 
       <div class="process__grid">
-        <ol class="process__steps reveal">
-          <li>
+        <ol class="process__steps">
+          <li class="reveal" style="--d:0">
             <button class="process-step is-active" type="button" data-stage="1">
               <span class="process-step__num">01</span>
               <span>
@@ -173,7 +173,7 @@
               </span>
             </button>
           </li>
-          <li>
+          <li class="reveal" style="--d:1">
             <button class="process-step" type="button" data-stage="2">
               <span class="process-step__num">02</span>
               <span>
@@ -182,7 +182,7 @@
               </span>
             </button>
           </li>
-          <li>
+          <li class="reveal" style="--d:2">
             <button class="process-step" type="button" data-stage="3">
               <span class="process-step__num">03</span>
               <span>
@@ -191,7 +191,7 @@
               </span>
             </button>
           </li>
-          <li>
+          <li class="reveal" style="--d:3">
             <button class="process-step" type="button" data-stage="4">
               <span class="process-step__num">04</span>
               <span>
@@ -238,18 +238,18 @@
         <h2>What you get, and what comes after</h2>
       </div>
 
-      <div class="services-rail reveal">
-        <div class="service-node service-node--core">
+      <div class="services-rail">
+        <div class="service-node service-node--core reveal" style="--d:0">
           <span class="service-node__label">Core</span>
           <h3 class="service-node__title">Your website</h3>
           <p class="service-node__text">A fast, professional site built around your business — designed, built, and launched.</p>
         </div>
-        <div class="service-node">
+        <div class="service-node reveal" style="--d:1">
           <span class="service-node__label">Ongoing</span>
           <h3 class="service-node__title">Upkeep</h3>
           <p class="service-node__text">Hosting, small updates, and changes as your business grows.</p>
         </div>
-        <div class="service-node">
+        <div class="service-node reveal" style="--d:2">
           <span class="service-node__label">Next step</span>
           <h3 class="service-node__title">Growth</h3>
           <p class="service-node__text">Booking, online orders, or a second page — added when you're ready.</p>

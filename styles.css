@@ -25,7 +25,7 @@
   /* Motion */
   --dur-micro: 200ms;
   --dur-entrance: 450ms;
-  --dur-section: 700ms;
+  --dur-section: 600ms;
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Layout */
@@ -365,6 +365,11 @@ body{
   border: 0;
   display: block;
   background: var(--ivory);
+  opacity: 1;
+  transition: opacity 130ms var(--ease-standard);
+}
+.browser-frame__body iframe.is-switching{
+  opacity: 0;
 }
 .browser-frame.is-live{
   box-shadow: 0 40px 80px -30px rgba(0,0,0,0.55), 0 0 0 1px var(--border-on-ivory), 0 0 46px -6px rgba(201,160,75,0.55);
@@ -571,13 +576,16 @@ body{
   gap: clamp(28px, 4vw, 40px);
 }
 
-.real-work-card{
+/* Hover-lift lives on an inner wrapper, not .real-work-card itself —
+   the card carries the scroll-reveal transform, and a single element
+   can only resolve one `transform` declaration at a time. */
+.real-work-card__inner{
   transition: transform var(--dur-micro) var(--ease-standard);
 }
-.real-work-card:hover{
+.real-work-card__inner:hover{
   transform: translateY(-4px);
 }
-.real-work-card:hover .browser-frame{
+.real-work-card__inner:hover .browser-frame{
   box-shadow: 0 46px 90px -28px rgba(0,0,0,0.5), 0 4px 24px -8px rgba(0,0,0,0.32);
 }
 .real-work-card .browser-frame{
@@ -684,9 +692,21 @@ body{
 .process-step__num{
   font-family: var(--font-head);
   font-size: 1.5rem;
-  color: var(--gold);
+  color: var(--text-on-ivory-muted);
   flex-shrink: 0;
   width: 2.4ch;
+  transition: color var(--dur-micro) var(--ease-standard);
+}
+.process-step.is-active .process-step__num{
+  color: var(--gold);
+}
+.process-step__num.is-pulsing{
+  animation: numPulse 800ms var(--ease-standard) both;
+}
+@keyframes numPulse{
+  0%{ color: var(--text-on-ivory-muted); }
+  40%{ color: var(--gold-bright); }
+  100%{ color: var(--gold); }
 }
 .process-step__title{
   font-weight: 600;
@@ -753,9 +773,7 @@ body{
   width: 6px; height: 6px;
   border-radius: 50%;
   background: #8FD19E;
-  animation: pulse 1.8s ease-in-out infinite;
 }
-@keyframes pulse{ 0%, 100%{ opacity: 1; } 50%{ opacity: 0.35; } }
 
 @media (min-width: 900px){
   .process__grid{
@@ -946,7 +964,7 @@ body{
    elements start hidden and wait for IntersectionObserver. */
 .js .reveal{
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition: opacity var(--dur-section) var(--ease-standard),
               transform var(--dur-section) var(--ease-standard);
   transition-delay: calc(var(--d, 0) * 90ms);
@@ -969,4 +987,7 @@ body{
   .js .reveal{ opacity: 1; transform: none; }
   .hero__headline .line{ opacity: 1; transform: none; }
   .blink-cursor{ display: none; }
+  .browser-frame__body iframe{ transition: none; }
+  .browser-frame__body iframe.is-switching{ opacity: 1; }
+  .process-step__num.is-pulsing{ animation: none; }
 }
