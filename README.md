@@ -85,6 +85,15 @@ the brand assets live in `assets/`:
 - `paper-texture.jpg` — a very-low-opacity (6%) grain overlay on the
   Problem and Process sections only (`styles.css`, `#problem`/`#process`).
   Maroon sections don't get it.
+- `hero-bg.jpg` — dark maroon texture behind the hero section's text, via
+  CSS `background-image` on `.hero` (`styles.css`) with a gradient scrim
+  (`linear-gradient(rgba(61,15,29,0.75), rgba(42,10,20,0.9))`) so headline
+  contrast holds regardless of which part of the texture sits behind which
+  word. Loads eagerly (plain CSS background, no lazy-loading) since it's
+  above the fold.
+- `problem-good-example.jpg` — the "has a proper website" homepage mockup
+  inside the Riverside Home Repair card in the Problem section, replacing
+  the old CSS-drawn placeholder.
 - `og-share.jpg` — the Open Graph / Twitter Card share image, wired up in
   `index.html`'s `<head>` (`og:image`, `twitter:image`). It's a relative
   path for now; once the site has a real domain, consider switching

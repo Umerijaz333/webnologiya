@@ -386,6 +386,9 @@ body{
   padding-top: clamp(56px, 9vw, 104px);
   padding-bottom: clamp(64px, 9vw, 112px);
   overflow: hidden;
+  background-image: linear-gradient(rgba(61,15,29,0.75), rgba(42,10,20,0.9)), url('assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .hero__inner{
   display: grid;
@@ -473,29 +476,13 @@ body{
   margin-top: 2px;
 }
 .result-card--good .result-card__preview{
+  display: block;
+  width: 100%;
   margin-top: 12px;
   border-radius: 6px;
   aspect-ratio: 16/9;
-  background: linear-gradient(135deg, var(--ivory-surface), #DCCFB4);
+  object-fit: cover;
   border: 1px solid var(--border-on-ivory);
-  position: relative;
-  overflow: hidden;
-}
-.result-card--good .result-card__preview::before{
-  content: "";
-  position: absolute;
-  left: 10px; right: 10px; top: 10px;
-  height: 8px;
-  border-radius: 3px;
-  background: var(--gold);
-  opacity: 0.55;
-}
-.result-card--good .result-card__preview::after{
-  content: "";
-  position: absolute;
-  left: 10px; right: 40%; bottom: 10px; top: 30px;
-  border-radius: 3px;
-  background: rgba(42,10,20,0.12);
 }
 .result-card--bare{
   display: flex;
