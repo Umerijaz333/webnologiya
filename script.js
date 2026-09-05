@@ -25,7 +25,7 @@
         '<section class="d-hero has-photo reveal d2">' +
         '<img class="d-hero__bg" src="assets/images/restaurant.jpg" alt="Plated restaurant dish with herb garnish on a candlelit table" loading="lazy">' +
         '<h1>Seasonal plates,<br>open nightly.</h1>' +
-        '<p>Neighborhood dining room &amp; wine bar.</p></section>' +
+        '<p>A neighborhood dining room and gathering place.</p></section>' +
         '<ul class="d-menu d-fill reveal d3">' +
         '<li><span>Roasted beet salad</span><em>$12</em></li>' +
         '<li><span>Herb-crusted lamb</span><em>$28</em></li>' +
