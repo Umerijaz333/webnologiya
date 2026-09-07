@@ -466,10 +466,31 @@ body{
   text-align: left;
 }
 .result-card{
+  position: relative;
   border: 1px solid var(--border-on-ivory);
   border-radius: var(--radius-sm);
   padding: 16px;
   background: var(--ivory);
+}
+.result-card__tag{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+.result-card__tag--found{
+  background: var(--gold);
+  color: var(--maroon-deep);
+}
+.result-card__tag--not-found{
+  border: 1px solid var(--border-on-ivory);
+  color: var(--text-on-ivory-muted);
 }
 .result-card__biz{
   font-weight: 600;
@@ -480,6 +501,9 @@ body{
   color: var(--text-on-ivory-muted);
   margin-top: 2px;
 }
+.result-card--good{
+  z-index: 2;
+}
 .result-card--good .result-card__preview{
   display: block;
   width: 100%;
@@ -489,12 +513,49 @@ body{
   object-fit: cover;
   border: 1px solid var(--border-on-ivory);
 }
+
+/* Small "VS" badge at the boundary between the two cards. Lives on the
+   good card so it's always anchored to a real edge instead of a guessed
+   midpoint — side-by-side it sits on the shared vertical edge, stacked
+   it sits on the shared horizontal edge, in both cases roughly half
+   overlapping each card. */
+.problem__vs{
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 6px 16px -6px rgba(42,10,20,0.28);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--maroon);
+}
+
 .result-card--bare{
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
   color: var(--text-on-ivory-muted);
+  filter: grayscale(85%);
+}
+/* Combined (not replaced) so filter transitions alongside the existing
+   scroll-reveal opacity/transform, instead of the two fighting over
+   the `transition` shorthand. */
+.js .result-card--bare.reveal{
+  transition: opacity var(--dur-section) var(--ease-standard),
+              transform var(--dur-section) var(--ease-standard),
+              filter var(--dur-section) var(--ease-standard);
 }
 .result-card--bare .result-card__phone{
   margin-top: 14px;
@@ -515,6 +576,11 @@ body{
 
 @media (max-width: 620px){
   .problem__mock{ grid-template-columns: 1fr; }
+  .problem__vs{
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* ===========================================================
