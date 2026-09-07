@@ -95,6 +95,10 @@ the brand assets live in `assets/`:
   inside the Riverside Home Repair card in the Problem section, replacing
   the old CSS-drawn placeholder.
 - `og-share.jpg` — the Open Graph / Twitter Card share image, wired up in
-  `index.html`'s `<head>` (`og:image`, `twitter:image`). It's a relative
-  path for now; once the site has a real domain, consider switching
-  `og:image` to an absolute URL for maximum crawler compatibility.
+  `index.html`'s `<head>` (`og:image`, `twitter:image`, `og:url`) as
+  absolute URLs pointing at `https://webnologiya.vercel.app` — WhatsApp,
+  Facebook, and most other crawlers won't reliably resolve a relative
+  `og:image` path. **If a custom domain is attached later, these three
+  URLs need updating to match it**, and the new domain should be
+  re-scraped at developers.facebook.com/tools/debug/ (the crawler caches
+  aggressively and won't pick up the change on its own).
