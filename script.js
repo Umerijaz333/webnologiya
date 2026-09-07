@@ -147,7 +147,7 @@
         '<section class="d-hero has-photo reveal d2">' +
         '<img class="d-hero__bg" src="assets/images/professional-service.jpg" alt="Close-up of a hand signing a document beside a set of scales" loading="lazy">' +
         '<h1>Clear counsel,<br>plainly explained.</h1>' +
-        "<p>Small business &amp; contract law.</p></section>" +
+        "<p>Business &amp; contract law.</p></section>" +
         '<p class="d-about d-fill reveal d3">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">Book a consultation</button></div>',
       css: ".d-about{margin:14px 24px 0;font-size:0.8rem;color:#5a5a5a;max-width:38ch;}",
