@@ -126,7 +126,7 @@
         '<nav><a href="#">Shop</a><a href="#">About</a><a href="#">Cart (0)</a></nav></header>' +
         '<section class="d-hero reveal d2"><h1>Everyday leather,<br>made to last.</h1><p>Small-batch leather goods, hand-stitched to order.</p></section>' +
         '<div class="d-product d-fill reveal d3">' +
-        '<img class="d-product__img" src="assets/images/wren-leather-wallet.jpg" alt="Brown leather bifold wallet shown open, displaying stitched card slots" loading="lazy">' +
+        '<img class="d-product__img" src="assets/images/ecommerce.jpg" alt="Leather bifold wallet and sunglasses styled on linen fabric" loading="lazy">' +
         '<div class="d-product__info"><strong>Leather bifold wallet</strong><span>$58</span></div>' +
         "</div>" +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">Add to cart</button></div>',
