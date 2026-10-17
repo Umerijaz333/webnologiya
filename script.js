@@ -57,14 +57,14 @@
         '<button type="button" data-i="2" aria-label="Photo 3"></button></div></div>' +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">Request a viewing</button></div>' +
         "<script>" +
-        "var imgs=['linear-gradient(135deg,#2C3E55,#5A7291)','linear-gradient(135deg,#7A8B6F,#B7C4A6)','linear-gradient(135deg,#8C7357,#D8C6A8)'];" +
+        "var imgs=[\"url('assets/images/real-estate-interior.jpg') center/cover\",'linear-gradient(135deg,#7A8B6F,#B7C4A6)','linear-gradient(135deg,#8C7357,#D8C6A8)'];" +
         "var gimg=document.getElementById('gimg');" +
         "document.querySelectorAll('.d-dots button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.d-dots button').forEach(function(x){x.classList.remove('active');});b.classList.add('active');gimg.style.background=imgs[+b.dataset.i];});});" +
         "</" +
         "script>",
       css:
         ".d-gallery{display:flex;flex-direction:column;}" +
-        ".d-gallery__img{flex:1 1 auto;min-height:0;border-radius:8px;background:linear-gradient(135deg,#2C3E55,#5A7291);transition:background .25s ease;}" +
+        ".d-gallery__img{flex:1 1 auto;min-height:0;border-radius:8px;background:url('assets/images/real-estate-interior.jpg') center/cover;transition:background .25s ease;}" +
         ".d-dots{flex:none;display:flex;gap:8px;justify-content:center;margin-top:10px;}" +
         ".d-dots button{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,0.18);padding:0;}" +
         ".d-dots button.active{background:var(--accent);}",
@@ -82,14 +82,15 @@
         '<img class="d-hero__bg" src="assets/images/interiors.jpg" alt="Minimalist living room interior with a sectional sofa and fireplace" loading="lazy">' +
         '<h1>Considered spaces,<br>built to last.</h1><p>Residential &amp; interior architecture.</p></section>' +
         '<div class="d-thumbs d-fill reveal d3">' +
-        '<div class="thumb" style="background:linear-gradient(135deg,#8C8C82,#C8C6BC);"><span class="thumb__cap">Birch House</span></div>' +
-        '<div class="thumb" style="background:linear-gradient(135deg,#6E6A61,#ABA79B);"><span class="thumb__cap">Fold Pavilion</span></div>' +
-        '<div class="thumb" style="background:linear-gradient(135deg,#9A8E77,#D6CBB4);"><span class="thumb__cap">Quarry Loft</span></div>' +
+        '<div class="thumb"><img class="thumb__img" src="assets/images/architecture-courtyard.jpg" alt="Stone-and-timber courtyard with a mature olive tree, reflecting pool, and glass-walled living room beyond" loading="lazy"><span class="thumb__cap">Birch House</span></div>' +
+        '<div class="thumb"><img class="thumb__img" src="assets/images/architecture-living.jpg" alt="Minimalist living room with a stone fireplace wall and floor-to-ceiling windows overlooking a lake and mountains" loading="lazy"><span class="thumb__cap">Fold Pavilion</span></div>' +
+        '<div class="thumb"><img class="thumb__img" src="assets/images/architecture-staircase.jpg" alt="Floating wood staircase against a stone wall, lit from below, beside an open entryway" loading="lazy"><span class="thumb__cap">Quarry Loft</span></div>' +
         "</div>" +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">View portfolio</button></div>',
       css:
         ".d-thumbs{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:100%;gap:8px;margin:14px 24px 0;}" +
         ".thumb{position:relative;height:100%;border-radius:6px;overflow:hidden;}" +
+        ".thumb__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}" +
         ".thumb__cap{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:0.66rem;color:#fff;background:rgba(0,0,0,0.45);opacity:0;transform:translateY(6px);transition:opacity .18s ease, transform .18s ease;}" +
         ".thumb:hover .thumb__cap{opacity:1;transform:none;}",
     },
