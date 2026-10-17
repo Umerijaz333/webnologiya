@@ -425,7 +425,7 @@
       name: "Watt & Watts",
       category: "B2B — Architectural Lighting",
       description:
-        "A specification-grade product catalogue built to route architects and designers straight to WhatsApp for stock and lead-time confirmation.",
+        "Watt & Watts needed a real online presence to match the business they'd already built offline. We designed and built their site from the ground up — product catalog, brand identity carried through every page, and a clear path for B2B buyers to get in touch. It's been live and running their business online since.",
       url: "https://www.wattandwatts.com",
       thumbnail: "https://wattandwatts.com/images/og/default-og.jpg",
     },

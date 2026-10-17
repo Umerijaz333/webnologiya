@@ -952,10 +952,65 @@ body{
 }
 
 /* ===========================================================
+   Trust — founder note + terms, just above the ask
+   =========================================================== */
+.trust__founder{
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 720px;
+}
+.trust__avatar{
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: var(--ivory-surface);
+  border: 1px solid var(--border-on-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-on-ivory-muted);
+}
+.trust__founder-text{
+  color: var(--text-on-ivory);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.trust__terms{
+  margin-top: 40px;
+  max-width: 640px;
+  list-style: none;
+  padding: 0;
+}
+.trust__terms li{
+  padding: 16px 0;
+  border-top: 1px solid var(--border-on-ivory);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text-on-ivory);
+}
+.trust__terms li:last-child{
+  border-bottom: 1px solid var(--border-on-ivory);
+}
+@media (max-width: 620px){
+  .trust__founder{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* ===========================================================
    Contact
    =========================================================== */
 .contact{
   padding-bottom: clamp(64px, 9vw, 120px);
+}
+.contact__whatsapp-note{
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-on-maroon-muted);
 }
 .contact__inner{
   display: grid;
