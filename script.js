@@ -23,7 +23,7 @@
         '<header class="d-nav reveal d1"><span class="d-logo">Amara Kitchen</span>' +
         '<nav><a href="#">Menu</a><a href="#">About</a><a href="#">Reserve</a></nav></header>' +
         '<section class="d-hero has-photo reveal d2">' +
-        '<img class="d-hero__bg" src="assets/images/restaurant.jpg" alt="Plated restaurant dish with herb garnish on a candlelit table" loading="lazy">' +
+        '<img class="d-hero__bg" src="assets/images/amara-dish.jpg" alt="Herb-crusted rack of lamb with roasted carrots and parsnip puree, plated fine-dining style" loading="lazy">' +
         '<h1>Seasonal plates,<br>open nightly.</h1>' +
         '<p>A neighborhood dining room and gathering place.</p></section>' +
         '<ul class="d-menu d-fill reveal d3">' +
@@ -104,7 +104,7 @@
         '<header class="d-nav reveal d1"><span class="d-logo">Fade House</span>' +
         '<nav><a href="#">Services</a><a href="#">Reviews</a><a href="#">Contact</a></nav></header>' +
         '<section class="d-hero has-photo reveal d2">' +
-        '<img class="d-hero__bg" src="assets/images/local-service.jpg" alt="Barbershop chair and grooming station" loading="lazy">' +
+        '<img class="d-hero__bg" src="assets/images/fade-house-cut.jpg" alt="Barber giving a client a straight-razor neck shave in a traditional barbershop" loading="lazy">' +
         '<h1>Sharp cuts,<br>no wait.</h1><p>Walk-ins welcome. Open six days.</p></section>' +
         '<ul class="d-services d-fill reveal d3">' +
         "<li>Classic haircut</li><li>Beard trim &amp; shape</li><li>Hot towel shave</li>" +
@@ -126,7 +126,7 @@
         '<nav><a href="#">Shop</a><a href="#">About</a><a href="#">Cart (0)</a></nav></header>' +
         '<section class="d-hero reveal d2"><h1>Everyday leather,<br>made to last.</h1><p>Small-batch leather goods, hand-stitched to order.</p></section>' +
         '<div class="d-product d-fill reveal d3">' +
-        '<img class="d-product__img" src="assets/images/ecommerce.jpg" alt="Leather bifold wallet and sunglasses styled on linen fabric" loading="lazy">' +
+        '<img class="d-product__img" src="assets/images/wren-leather-wallet.jpg" alt="Brown leather bifold wallet shown open, displaying stitched card slots" loading="lazy">' +
         '<div class="d-product__info"><strong>Leather bifold wallet</strong><span>$58</span></div>' +
         "</div>" +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">Add to cart</button></div>',
