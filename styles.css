@@ -1042,6 +1042,65 @@ body{
 }
 
 /* ===========================================================
+   Floating WhatsApp button — fixed across every section
+   =========================================================== */
+.whatsapp-float{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--maroon-deep);
+  box-shadow: 0 20px 40px -16px rgba(0,0,0,0.55), 0 4px 16px -6px rgba(0,0,0,0.3);
+  transition: transform var(--dur-micro) var(--ease-standard),
+              box-shadow var(--dur-micro) var(--ease-standard);
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible{
+  transform: translateY(-3px);
+  box-shadow: 0 26px 50px -16px rgba(0,0,0,0.6), 0 6px 20px -6px rgba(0,0,0,0.35);
+}
+.whatsapp-float svg{
+  flex: none;
+}
+.whatsapp-float__label{
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translate(6px, -50%);
+  white-space: nowrap;
+  background: var(--maroon-deep);
+  color: var(--text-on-maroon);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-on-maroon);
+  box-shadow: 0 10px 24px -10px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity var(--dur-micro) var(--ease-standard),
+              transform var(--dur-micro) var(--ease-standard);
+  pointer-events: none;
+}
+.whatsapp-float:hover .whatsapp-float__label,
+.whatsapp-float:focus-visible .whatsapp-float__label{
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+@media (max-width: 480px){
+  .whatsapp-float{ right: 14px; bottom: 14px; width: 48px; height: 48px; }
+  .whatsapp-float svg{ width: 22px; height: 22px; }
+  /* No hover on touch devices — the label would stay invisible anyway. */
+  .whatsapp-float__label{ display: none; }
+}
+
+/* ===========================================================
    Scroll reveal (IntersectionObserver driven)
    =========================================================== */
 /* Visible by default — safe if JS never runs. The synchronous inline

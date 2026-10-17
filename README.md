@@ -52,11 +52,17 @@ npm i -g vercel
 vercel dev
 ```
 
-## Still needed before this is production-ready
+## WhatsApp
 
-- **WhatsApp number**: `index.html` has a placeholder `wa.me` link
-  (`https://wa.me/10000000000`, marked with a `TODO` comment next to it in
-  the Contact section). Replace `10000000000` with the real number.
+The real number (`+92 303 974 3559`) is wired into two places in
+`index.html`:
+- The "Message us on WhatsApp" link in the Contact section.
+- `.whatsapp-float` — a fixed button in the bottom-right corner, present on
+  every section via `position: fixed`, that expands to show a "Chat on
+  WhatsApp" label on hover/focus (hidden on touch widths, where hover
+  doesn't apply). Its styles live in `styles.css` just above the scroll
+  reveal section. To change the number later, update both `wa.me/...`
+  URLs (they're currently identical and not read from a shared constant).
 
 ## Logo & favicons
 
