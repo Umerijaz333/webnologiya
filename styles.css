@@ -359,6 +359,25 @@ body{
   aspect-ratio: 16 / 10;
   background: var(--ivory);
 }
+/* Below ~560px the frame itself gets too narrow for a 16:10 ratio to hold
+   a full demo (nav + hero + content + CTA) without clipping — the fixed
+   chrome alone needs more vertical room than that ratio leaves at phone
+   widths. Switch to a fixed height instead of a ratio so content gets
+   enough space regardless of how narrow the frame is.
+   Scoped to the hero/Work demo frame only (it's the one with real nav +
+   hero + content + CTA stacking) — the Real Work cards and Process preview
+   are plain screenshots/snippets that don't need the extra room and would
+   just end up with awkward empty space if included here. */
+@media (max-width: 560px){
+  #hero-frame-slot .browser-frame__body,
+  #work-frame-slot .browser-frame__body{
+    aspect-ratio: auto;
+    /* min-height alone wouldn't give the iframe's height:100% a definite
+       value to resolve against (it'd fall back to the ~150px UA default) —
+       needs an explicit height, same as aspect-ratio provided before. */
+    height: 420px;
+  }
+}
 .browser-frame__body iframe{
   width: 100%;
   height: 100%;

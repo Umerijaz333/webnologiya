@@ -43,12 +43,7 @@
         ".d-menu__thumb{width:32px;height:32px;border-radius:6px;object-fit:cover;flex:none;}" +
         ".d-menu li em{font-style:normal;opacity:0;transform:translateX(4px);transition:opacity .18s ease, transform .18s ease;color:var(--accent);font-weight:600;flex:none;}" +
         ".d-menu li:hover em{opacity:1;transform:none;}" +
-        ".d-ambiance{flex:1 1 auto;min-height:0;width:100%;margin-top:10px;border-radius:8px;object-fit:cover;display:block;}" +
-        // The mobile frame only has ~25-40px of vertical room left for this
-        // whole block after nav+hero+actions — not enough for three photo
-        // rows plus an ambiance shot. Fall back to the plain text list
-        // (same as before this change) rather than silently clipping it.
-        "@media (max-width:420px){ .d-menu__thumb{display:none;} .d-ambiance{display:none;} .d-menu li{padding:5px 0;font-size:0.74rem;} }",
+        ".d-ambiance{flex:1 1 auto;min-height:0;width:100%;margin-top:10px;border-radius:8px;object-fit:cover;display:block;}",
     },
     {
       id: "real-estate",
