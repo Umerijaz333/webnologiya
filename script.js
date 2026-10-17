@@ -149,9 +149,15 @@
         '<img class="d-hero__bg" src="assets/images/professional-service.jpg" alt="Close-up of a hand signing a document beside a set of scales" loading="lazy">' +
         '<h1>Clear counsel,<br>plainly explained.</h1>' +
         "<p>Business &amp; contract law.</p></section>" +
-        '<p class="d-about d-fill reveal d3">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
+        '<div class="d-counsel d-fill reveal d3">' +
+        '<img class="d-counsel__img" src="assets/images/professional-service-consultation.jpg" alt="Two professionals in discussion across a desk during a business consultation" loading="lazy">' +
+        '<p class="d-counsel__caption">Twelve years advising local businesses on contracts, leases, and formation.</p>' +
+        "</div>" +
         '<div class="d-actions reveal d4"><button class="d-cta" type="button">Book a consultation</button></div>',
-      css: ".d-about{margin:14px 24px 0;font-size:0.8rem;color:#5a5a5a;max-width:38ch;}",
+      css:
+        ".d-counsel{display:flex;flex-direction:column;margin:14px 24px 0;}" +
+        ".d-counsel__img{flex:1 1 auto;min-height:0;width:100%;border-radius:8px;object-fit:cover;display:block;}" +
+        ".d-counsel__caption{flex:none;margin-top:10px;font-size:0.8rem;color:#5a5a5a;max-width:42ch;}",
     },
   ];
 
